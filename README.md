@@ -17,3 +17,6 @@ Pensiamo a quali entità (tabelle) creare per il nostro database e cerchiamo poi
 Utilizzare https://www.diagrams.net/ per la creazione dello schema.
 
 Esportare quindi il diagramma in jpg e caricarlo nella repo.
+
+
+<img width="100%" src="https://github.com/Roberto-Larivera/db-university/blob/main/DBUniversity.jpg" />
