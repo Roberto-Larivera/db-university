@@ -68,7 +68,7 @@
     = 54
 
 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
-    SELECT `exam_student`.`student_id`, `exams`.`course_id`, COUNT(*). AS `exam_attempts`
+    SELECT `exam_student`.`student_id`, `exams`.`course_id`, COUNT(*) AS `exam_attempts`
     FROM `exam_student`
     INNER JOIN `students`
     ON `exam_student`.`student_id` = `students`.`id`
