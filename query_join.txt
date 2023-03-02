@@ -1,5 +1,5 @@
 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
-    SELECT * 
+    SELECT `students`.`id`,`students`.`name`,`students`.`surname`,`degrees`.`id`,`degrees`.`name`
     FROM `students` 
     INNER JOIN `degrees` 
     ON `students`.`degree_id` = `degrees`.`id` 
@@ -12,7 +12,7 @@
     FROM `degrees` 
     INNER JOIN `departments` 
     ON `degrees`.`department_id` = `departments`.`id` 
-    WHERE `departments`.`name` = 'Dipartimento di Neuroscienze';
+    WHERE `departments`.`name` = 'Dipartimento di Neuroscienze' AND `degrees`.`level` = 'magistrale';
 
     = 7
 
@@ -78,6 +78,18 @@
     ORDER BY `exam_student`.`student_id` ASC;
 
     = 32246
+    
+    SELECT `exam_student`.`student_id`, `exams`.`course_id`, COUNT(*) AS `exam_attempts`,MAX(`exam_student`.`vote`) AS `max_vote` 
+    FROM `exam_student` 
+    INNER JOIN `students` 
+    ON `exam_student`.`student_id` = `students`.`id` 
+    INNER JOIN `exams` 
+    ON `exam_student`.`exam_id` = `exams`.`id` 
+    GROUP BY `exam_student`.`student_id`, `exams`.`course_id` 
+    HAVING `max_vote` >= 18 
+    ORDER BY `exam_student`.`student_id` ASC;
+    
+    = 21880
     
 
 
